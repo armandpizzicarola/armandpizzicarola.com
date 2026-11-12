@@ -1,0 +1,17 @@
+# Armand Pizzicarola
+
+> Armand Pizzicarola is the NY-based VP of Operations at Keepe, a Techstars-backed, Series A prop-tech marketplace, and the builder of PrintStack. This is his personal site: essays on operating, reading notes, and side projects.
+
+## Pages
+
+- [About](https://www.armandpizzicarola.com/about/)
+- [Reading](https://www.armandpizzicarola.com/reading/)
+
+## Ramblings (essays and reading notes, newest first)
+
+- [The Uneven Distribution of Fulfillment](https://www.armandpizzicarola.com/ramblings/the-uneven-distribution-of-fulfillment.md) (2026-09-20)
+- [[Reading] Energy and Civilization: A History, Vaclav Smil](https://www.armandpizzicarola.com/ramblings/reading-energy-and-civilization-vaclav-smil.md) (2026-07-27)
+- [Building Slowly](https://www.armandpizzicarola.com/ramblings/building-slowly.md) (2026-02-17)
+- [We’re Profitable. Now What?](https://www.armandpizzicarola.com/ramblings/were-profitable-now-what.md) (2024-06-10)
+- [Optionality is Better Than Negotiation](https://www.armandpizzicarola.com/ramblings/optionality-is-better-than-negotiation.md) (2024-04-12)
+- [Conducting an Orchestra](https://www.armandpizzicarola.com/ramblings/conducting-an-orchestra.md) (2023-09-12)

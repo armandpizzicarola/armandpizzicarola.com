@@ -13,7 +13,3 @@ NY-based VP of Operations at Keepe (Techstars, Series A, Prop-Tech Marketplace).
 - **StartupChile Founder.** A friend and I once tried our hands at a hardware startup that we took through StartupChile in 2015. Although the experience was formative (and semi-successful), I vowed never to touch hardware again (it was too dang hard!). Time will tell if that vow lasts :)
 - **Geekwire Writer**. As an excuse to travel S America after graduating Seattle U, a friend and I convinced Geekwire to allow us to [publish some articles](https://www.geekwire.com/author/armand-pizzicarola-and-andrew-mewborn/) on the innovation scene down there.
 - **Music**. Back in 2014, a friend and I had the opportunity to pull together a community of music lovers around Slack with [#music](https://launchpass.com/hashtagmusic), recognized on [Buzzfeed](https://www.buzzfeed.com/veronica0811/10-fast-growing-slack-communitieshangouts-you-sho-nvja) and [TNW](https://thenextweb.com/news/slack-is-quietly-unintentionally-killing-irc). Nowadays, I cherish human-powered radio (s/o to [NTS](https://www.nts.live/))
-
----
-
-[Twitter](https://twitter.com/aarmandooooo) | [Email](mailto:anp042@gmail.com) | [LinkedIn](https://www.linkedin.com/in/armandpizzicarola/)

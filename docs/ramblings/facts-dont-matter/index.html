@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facts Don’t Matter | Armand Pizzicarola</title>
+<meta name="description" content="This is not an original position. Luckily, I&#x27;m surrounded by some brilliant folks who&#x27;ve mentioned the notion; however, I feel it deserves a bit more credit. There&#x27;s a…">
+<meta name="author" content="Armand Pizzicarola">
+<link rel="canonical" href="https://www.armandpizzicarola.com/ramblings/facts-dont-matter/">
+<meta property="og:title" content="Facts Don’t Matter | Armand Pizzicarola">
+<meta property="og:description" content="This is not an original position. Luckily, I&#x27;m surrounded by some brilliant folks who&#x27;ve mentioned the notion; however, I feel it deserves a bit more credit. There&#x27;s a…">
+<meta property="og:url" content="https://www.armandpizzicarola.com/ramblings/facts-dont-matter/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Facts Don\u2019t Matter", "datePublished": "2023-10-13", "author": {"@type": "Person", "name": "Armand Pizzicarola", "url": "https://www.armandpizzicarola.com/"}}</script>
+<style>
+:root { --fg: #37352f; --muted: #8a8780; --line: #e9e9e7; --bg: #fff; --link: #37352f; }
+/* Light is the default. Dark palette kept for an explicit opt-in (<html data-theme="dark">), not the OS setting. */
+:root[data-theme="dark"] { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
+* { box-sizing: border-box; }
+body { margin: 0 auto; max-width: 44rem; padding: 2.5rem 1.25rem 4rem; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+a { color: var(--link); text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--fg); }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; margin-bottom: 3rem; font-size: .95rem; }
+header .home { font-weight: 600; text-decoration: none; }
+header nav { color: var(--muted); }
+header nav a { text-decoration: none; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -.01em; }
+h2 { font-size: 1.2rem; margin: 2.5rem 0 .75rem; }
+.lede { color: var(--fg); }
+.meta, time { color: var(--muted); font-size: .9rem; }
+ul.posts { list-style: none; padding: 0; margin: 0; }
+ul.posts li { display: flex; gap: 1rem; padding: .45rem 0; border-bottom: 1px solid var(--line); }
+ul.posts time { flex: 0 0 6.5rem; padding-top: .1rem; }
+img { max-width: 100%; height: auto; border-radius: 4px; }
+blockquote { margin: 1.25rem 0; padding: .1rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+
+/* ---- Gallery layout: wider pages for posts and the Ramblings index ---- */
+body.wide { max-width: 58rem; }
+.art img, .wall img { display: block; width: 100%; border-radius: 0; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 10px 24px -12px rgba(0,0,0,.25); }
+
+/* Post: art hangs in a narrow left column; every line of text shares one left edge */
+.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; }
+.post-grid > * { grid-column: 2; }
+.post-grid > .art { grid-column: 1; grid-row: 1; margin: .35rem 0 0; }
+.post-grid > .placard { grid-row: 1; align-self: end; }
+.art img { height: auto; }
+.art figcaption { margin-top: .75rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.placard { margin-bottom: 3rem; }
+.placard h1 { font-size: 1.75rem; margin: 0 0 .5rem; }
+.placard .meta { margin: 0; }
+.placard .lede { font-size: .95rem; line-height: 1.6; color: var(--muted); margin: 1.25rem 0 0; }
+
+/* Ramblings index: two across; small art left, title top, date on the bottom edge */
+.wall { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; }
+.wall li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); column-gap: 1.25rem; align-items: stretch; }
+.wall .art-link { display: block; }
+.wall img { aspect-ratio: 4 / 3; object-fit: cover; }
+.wall .placard { margin: 0; display: flex; flex-direction: column; justify-content: space-between; }
+.wall .placard h2 { font-size: 1.15rem; margin: 0 0 .3rem; line-height: 1.3; }
+.wall .placard h2 a { text-decoration: none; }
+.wall .placard h2 a:hover { text-decoration: underline; }
+.wall .placard .meta { margin: 0; line-height: 1; }
+
+@media (max-width: 720px) {
+  .post-grid { grid-template-columns: minmax(0, 1fr); }
+  .post-grid > *, .post-grid > .art, .post-grid > .placard { grid-column: 1; grid-row: auto; }
+  .post-grid > .art { max-width: 15rem; margin-bottom: 1.5rem; }
+  .wall { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
+  .wall li { grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1rem; }
+}
+</style>
+</head>
+<body class="wide">
+<header><a class="home" href="../../">Armand Pizzicarola</a><nav><a href="../../about/">About</a> · <a href="../../ramblings/">Ramblings</a> · <a href="../../reading/">Reading</a></nav></header>
+<main>
+<article class="post-grid">
+<figure class="art"><img src="../../assets/covers/facts-dont-matter.jpg" alt=""></figure>
+<div class="placard"><h1>Facts Don’t Matter</h1>
+<p class="meta">Armand Pizzicarola · <time datetime="2023-10-13">Oct 13, 2023</time></p></div>
+<p>This is not an <em>original</em> position. Luckily, I'm surrounded by some brilliant folks who've mentioned the notion; however, I feel it deserves a bit more credit.</p>
+<p>There's a certain fascination with facts. We have "fact-checkers" around election season, media companies are obsessed with "presenting the facts", and our justice system is focused on seeking truth, and so on and so forth. Typically, once we have the facts, we feel like we can make better decisions and judgments and live more informed lives. Don't get me wrong, facts and truth are <em>important,</em> however, they rarely end up mattering nearly as much as we give them credit for.</p>
+<h3>In History</h3>
+<p>The world is as we shape it. One of Ray Dalio’s observations in The Changing World Order was profound: both history and the future (all of mankind) is an average of the histories and futures of every individual who has walked the earth. Take the answer to the question: What will I do today? and multiply that by 27,375 <a href="https://www.joshuakennon.com/the-average-person-lives-27375-days-make-each-of-them-count/#:~:text=The%20Average%20Person%20Lives%2027%2C375,Make%20Each%20of%20Them%20Count.">(average number of days a person lives)</a>. Then, take the person’s life and multiply it by 117 billion <a href="https://www.prb.org/articles/how-many-people-have-ever-lived-on-earth/#:~:text=This%20major%20change%20in%20our,ever%20been%20born%20on%20Earth.">(the number of people that have walked the planet)</a>. As a result, you have some explanation for the history of all mankind. In more manageable terms, we only have roads, for example, because some people believed they should exist and convinced others that they should play a part in building them.</p>
+<p><em>To the point</em> - I believe that man landed on the moon. Some people don’t believe that. I have a set of reasons and justifications for why I believe that, just as other people have their own reasons and justifications for not believing that we’ve landed on the moon. The moon landing has inspired me to believe that other feats of mankind are possible and I try and turn that inspiration into what I do on a daily basis. My output can be explained (at least, in part) by the moon landing.</p>
+<p>At this point, does it matter whether or not we <em>actually</em> landed on the moon? In other words, what changes about what I do every day if the moon landing is faked? Likely, nothing.</p>
+<h3>In Leadership</h3>
+<p>I often share this bit of insight (that facts don’t really matter) with team members who are just joining. Typically, the reaction is surprise and then usually distaste. “Every argument should be based on its merits alone, decisions based on data and promotions based on value created”. Ideally, yes. However, there’s something that most of us, however <em>objective</em> we may strive to be, that seems to take that off tilt; human emotions. Persuasion usually ends up mattering more than facts. Facts are not very excitable, at least not on their own.</p>
+<p>Is this just <em>politics</em>? Yes. It’s annoying and unfair, but if you embrace it, seek to understand it (<a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/forward-thinking-on-talent-state-capacity-and-being-hopeful-with-tyler-cowen">hierarchy analysis — Tyler Cowen</a>) then you almost certainly will not only navigate your company with more ease, but likely end up in a position to convince people to join in your mission.</p>
+<p>Leadership is not about just outlining facts — that would be too easy. It’s about forming a story that goes beyond the facts to inspire folks to join you.</p>
+<h3>In Business</h3>
+<p>The market has been paying for this unfortunate reality recently.</p>
+<h4>Public Markets</h4>
+<p>The market is speculative; you likely already know that. Typically what drives the market forward is what people <em>believe</em> will happen. Sometimes, this is based on “fact” (historical earnings to targets) and other times it’s based on particular beliefs about the future. I’d argue that without the latter, you can’t get to the former.</p>
+<h4>Private Markets</h4>
+<p>Fundraising from investors is probably more an art than a science. Reputation does matter of course, but why should investors care about reputation? Can they make money in the future on the value you created in the past? Not really. They use it as a data-point to better predict the future.</p>
+<p>Charismatic founders have a vision and get buy-in on that vision. They also convince investors that they’re the right folks to achieve that vision. While due-diligence is the “fact-finding” portion of the investment process, it’s typically not what drives the majority of the investment dollars in private markets. That can be attributed to the stories (not facts) that run through the business world.</p>
+<h3>How to think about this moving forward?</h3>
+<p>I once read a distinction drawn between “lying” about the past v. “lying” about the future. It turns out that “lying” about the future is <em>technically</em> impossible. This is a saving grace for overly ambitious founders, but it can still get you into trouble because although facts tend to matter less than stories, you will need to be keenly aware of the role they each play (ie. expectation setting).</p>
+<p>Don’t dismiss facts; just understand where they matter and where they don’t.</p>
+</article>
+</main>
+<footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="mailto:anp042@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
+</body>
+</html>

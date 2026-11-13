@@ -14,9 +14,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "We\u2019re Profitable. Now What?", "datePublished": "2024-06-10", "author": {"@type": "Person", "name": "Armand Pizzicarola", "url": "https://www.armandpizzicarola.com/"}}</script>
 <style>
 :root { --fg: #37352f; --muted: #8a8780; --line: #e9e9e7; --bg: #fff; --link: #37352f; }
-@media (prefers-color-scheme: dark) {
-  :root { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
-}
+/* Light is the default. Dark palette kept for an explicit opt-in (<html data-theme="dark">), not the OS setting. */
+:root[data-theme="dark"] { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
 * { box-sizing: border-box; }
 body { margin: 0 auto; max-width: 44rem; padding: 2.5rem 1.25rem 4rem; background: var(--bg); color: var(--fg);
   font: 17px/1.65 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
@@ -37,20 +36,56 @@ img { max-width: 100%; height: auto; border-radius: 4px; }
 blockquote { margin: 1.25rem 0; padding: .1rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+
+/* ---- Gallery layout: wider pages for posts and the Ramblings index ---- */
+body.wide { max-width: 58rem; }
+.art img, .wall img { display: block; width: 100%; border-radius: 0; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 10px 24px -12px rgba(0,0,0,.25); }
+
+/* Post: art hangs in a narrow left column; every line of text shares one left edge */
+.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; }
+.post-grid > * { grid-column: 2; }
+.post-grid > .art { grid-column: 1; grid-row: 1; margin: .35rem 0 0; }
+.post-grid > .placard { grid-row: 1; align-self: end; }
+.art img { height: auto; }
+.art figcaption { margin-top: .75rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.placard { margin-bottom: 3rem; }
+.placard h1 { font-size: 1.75rem; margin: 0 0 .5rem; }
+.placard .meta { margin: 0; }
+.placard .lede { font-size: .95rem; line-height: 1.6; color: var(--muted); margin: 1.25rem 0 0; }
+
+/* Ramblings index: two across; small art left, title top, date on the bottom edge */
+.wall { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; }
+.wall li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); column-gap: 1.25rem; align-items: stretch; }
+.wall .art-link { display: block; }
+.wall img { aspect-ratio: 4 / 3; object-fit: cover; }
+.wall .placard { margin: 0; display: flex; flex-direction: column; justify-content: space-between; }
+.wall .placard h2 { font-size: 1.15rem; margin: 0 0 .3rem; line-height: 1.3; }
+.wall .placard h2 a { text-decoration: none; }
+.wall .placard h2 a:hover { text-decoration: underline; }
+.wall .placard .meta { margin: 0; line-height: 1; }
+
+@media (max-width: 720px) {
+  .post-grid { grid-template-columns: minmax(0, 1fr); }
+  .post-grid > *, .post-grid > .art, .post-grid > .placard { grid-column: 1; grid-row: auto; }
+  .post-grid > .art { max-width: 15rem; margin-bottom: 1.5rem; }
+  .wall { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
+  .wall li { grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1rem; }
+}
 </style>
 </head>
-<body>
+<body class="wide">
 <header><a class="home" href="../../">Armand Pizzicarola</a><nav><a href="../../about/">About</a> · <a href="../../ramblings/">Ramblings</a> · <a href="../../reading/">Reading</a></nav></header>
 <main>
-<article>
-<h1>We’re Profitable. Now What?</h1>
-<p class="meta">Armand Pizzicarola · <time datetime="2024-06-10">Jun 10, 2024</time></p>
+<article class="post-grid">
+<figure class="art"><img src="../../assets/covers/were-profitable-now-what.jpg" alt="Rudolf von Alt"><figcaption>Rudolf von Alt · <a href="https://commons.wikimedia.org/wiki/File:Rudolf_Ritter_von_Alt_001.jpg">Wikimedia Commons</a></figcaption></figure>
+<div class="placard"><h1>We’re Profitable. Now What?</h1>
+<p class="meta">Armand Pizzicarola · <time datetime="2024-06-10">Jun 10, 2024</time></p></div>
 <p>For the past few years, nearly all growth-stage companies have been working to get profitable, with no exception to mine. Shifting the team’s mentality from grow-at-all-costs to “we all lose our jobs if we don’t get profitable” was a hard shift, but an easy decision (if you can call it one). After a few down-sizings, the meteor heading in our direction was in plain sight and we had to act quickly and there was no tip-toeing around <em>strategy</em>.</p>
 <p>Fast forward to today, we’ve clawed our way to breakeven (and a tad beyond) and although it feels like we’ve accomplished the impossible, nobody is quite satisfied. The obvious reason is that this financial milestone for the company translates to the individuals only inasmuch as we have employment; I can guarantee that the bar was a bit higher than that when first joining a growth stage company.</p>
 <p>So, the board’s official statement is now, “Great job. Now grow, but do it while profitable.”, which, to be fair, is sound advice. It tickles the mind to think that this statement essentially wipes out the value proposition for venture capital as whole, but that’s not for this reflection. The reality is that's exactly what we have to do in order for us, as individuals, to scratch our itch of ambition.</p>
 <p>It’s back to “growth” mode for us, but with an asterisk. As a company, we’ve done growth mode, we’ve done profitability mode, but we haven’t done growth-while-profitable mode. The clutch is currently down and ready for the gear to shift back towards growth, but there’s a psychological scar that’s keeping us from putting the pedal to the metal. It’ll be slightly new waters to navigate, but as with anything, adding some intentional (and largely financial) frameworks to operate within should allow us to shake that scare and get moving.</p>
 </article>
 </main>
-<footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
+<footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="mailto:anp042@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
 </body>
 </html>

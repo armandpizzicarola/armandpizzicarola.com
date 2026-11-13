@@ -2,6 +2,8 @@
 title: Optionality is Better Than Negotiation
 date: 2024-04-12
 notion_id: 9197eab48ec6420a87d51e66f33506f6
+cover: /assets/covers/optionality-is-better-than-negotiation.jpg
+caption: English School, *A Prospect of Gautby Hall, Lincolnshire, from Across the Lake*
 ---
 In the business world (and the world in general), there's an emphasis on improving your negotiation skills. Books, courses, lectures, etc., all drive home the idea that negotiation is of the utmost importance; ["In Business as in Life -- You Don't Get What You Deserve, You Get What You Negotiate"](https://www.amazon.com/Business-Life-Dont-Deserve-Negotiate/dp/0965227499).
 

@@ -2,6 +2,9 @@
 title: We’re Profitable. Now What?
 date: 2024-06-10
 notion_id: 9752903d61a84b67947a437315e1f351
+cover: /assets/covers/were-profitable-now-what.jpg
+cover_source: https://commons.wikimedia.org/wiki/File:Rudolf_Ritter_von_Alt_001.jpg
+caption: Rudolf von Alt
 ---
 For the past few years, nearly all growth-stage companies have been working to get profitable, with no exception to mine. Shifting the team’s mentality from grow-at-all-costs to “we all lose our jobs if we don’t get profitable” was a hard shift, but an easy decision (if you can call it one). After a few down-sizings, the meteor heading in our direction was in plain sight and we had to act quickly and there was no tip-toeing around *strategy*.
 

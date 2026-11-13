@@ -13,9 +13,8 @@
 <meta property="og:type" content="website">
 <style>
 :root { --fg: #37352f; --muted: #8a8780; --line: #e9e9e7; --bg: #fff; --link: #37352f; }
-@media (prefers-color-scheme: dark) {
-  :root { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
-}
+/* Light is the default. Dark palette kept for an explicit opt-in (<html data-theme="dark">), not the OS setting. */
+:root[data-theme="dark"] { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
 * { box-sizing: border-box; }
 body { margin: 0 auto; max-width: 44rem; padding: 2.5rem 1.25rem 4rem; background: var(--bg); color: var(--fg);
   font: 17px/1.65 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
@@ -36,6 +35,41 @@ img { max-width: 100%; height: auto; border-radius: 4px; }
 blockquote { margin: 1.25rem 0; padding: .1rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+
+/* ---- Gallery layout: wider pages for posts and the Ramblings index ---- */
+body.wide { max-width: 58rem; }
+.art img, .wall img { display: block; width: 100%; border-radius: 0; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 10px 24px -12px rgba(0,0,0,.25); }
+
+/* Post: art hangs in a narrow left column; every line of text shares one left edge */
+.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; }
+.post-grid > * { grid-column: 2; }
+.post-grid > .art { grid-column: 1; grid-row: 1; margin: .35rem 0 0; }
+.post-grid > .placard { grid-row: 1; align-self: end; }
+.art img { height: auto; }
+.art figcaption { margin-top: .75rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.placard { margin-bottom: 3rem; }
+.placard h1 { font-size: 1.75rem; margin: 0 0 .5rem; }
+.placard .meta { margin: 0; }
+.placard .lede { font-size: .95rem; line-height: 1.6; color: var(--muted); margin: 1.25rem 0 0; }
+
+/* Ramblings index: two across; small art left, title top, date on the bottom edge */
+.wall { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; }
+.wall li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); column-gap: 1.25rem; align-items: stretch; }
+.wall .art-link { display: block; }
+.wall img { aspect-ratio: 4 / 3; object-fit: cover; }
+.wall .placard { margin: 0; display: flex; flex-direction: column; justify-content: space-between; }
+.wall .placard h2 { font-size: 1.15rem; margin: 0 0 .3rem; line-height: 1.3; }
+.wall .placard h2 a { text-decoration: none; }
+.wall .placard h2 a:hover { text-decoration: underline; }
+.wall .placard .meta { margin: 0; line-height: 1; }
+
+@media (max-width: 720px) {
+  .post-grid { grid-template-columns: minmax(0, 1fr); }
+  .post-grid > *, .post-grid > .art, .post-grid > .placard { grid-column: 1; grid-row: auto; }
+  .post-grid > .art { max-width: 15rem; margin-bottom: 1.5rem; }
+  .wall { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
+  .wall li { grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1rem; }
+}
 </style>
 </head>
 <body>
@@ -45,7 +79,7 @@ footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line);
 <p>More important than the appreciation of a <em>book</em> is the appreciation of <em>reading</em>. This is not a list of books I recommend; just a list of what I’ve read.</p>
 <h2>2026</h2>
 <ul>
-<li>Energy and Civilization: A History, Vaclav Smil</li>
+<li><a href="../ramblings/reading-energy-and-civilization-vaclav-smil/">Energy and Civilization: A History, Vaclav Smil</a></li>
 <li>The Three-Body Problem, Cixin Liu</li>
 <li>1929: Inside the Greatest Crash in History – and How It Shattered a Nation, Andrew Ross Sorkin</li>
 </ul>
@@ -54,7 +88,7 @@ footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line);
 <li>Machines of Loving Grace, John Markoff</li>
 <li>Heart of Darkness, Joseph Conrad</li>
 <li>The Art of Doing Science and Engineering, Richard Hamming</li>
-<li>Under the Loving Care of the Fatherly Leader: North Korea and the Kim Dynasty, Bradley K. Martin</li>
+<li><a href="../ramblings/reading-under-the-loving-care-of-the-fatherly-leader-bradley-k-martin/">Under the Loving Care of the Fatherly Leader: North Korea and the Kim Dynasty, Bradley K. Martin</a></li>
 <li>Man's Search for Meaning, Viktor E. Frankl</li>
 <li>The Best Short Stories 2024: The O. Henry Prize Winners, Amor Towles</li>
 <li>The Goldfinch, Donna Tartt</li>
@@ -66,52 +100,52 @@ footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line);
 <ul>
 <li>Open, Andre Agassi</li>
 <li>The Anarchy: The East India Company, Corporate Violence, and the Pillage of an Empire, William Dalrymple</li>
-<li>Hillbilly Elegy, J.D. Vance</li>
-<li>The Crisis of The Early Italian Renaissance, Hans Baron</li>
+<li><a href="../ramblings/reading-hillbilly-elegy-j-d-vance/">Hillbilly Elegy, J.D. Vance</a></li>
+<li><a href="../ramblings/reading-the-crisis-of-the-early-italian-renaissance-hans-baron/">The Crisis of The Early Italian Renaissance, Hans Baron</a></li>
 <li>The Wager, David Grann</li>
 <li>Piranesi, Susanna Clarke</li>
 <li>The Psychology of Human Misjudgment, Charles A. Munger</li>
 <li>The Path to Power, Robert A. Caro</li>
-<li>Gulliver’s Travels, Jonathan Swift</li>
-<li>World Without End, Ken Follet</li>
+<li><a href="../ramblings/reading-gullivers-travels-jonathan-swift/">Gulliver’s Travels, Jonathan Swift</a></li>
+<li><a href="../ramblings/reading-world-without-end-ken-follet/">World Without End, Ken Follet</a></li>
 <li>BETTER HOME &amp; FINANCE HOLDING CO, 10-K filed on 4/8/2024</li>
 <li>Can Minor League Baseball Survive Its Real Estate Problems?</li>
 <li>Attention Is All You Need</li>
 <li>Mortgage-Backed Securities: Products, Structuring, and Analytical Techniques, Frank J. Fabozzi</li>
-<li>The 48 Laws of Power, Robert Greene</li>
+<li><a href="../ramblings/reading-the-48-laws-of-power-robert-greene/">The 48 Laws of Power, Robert Greene</a></li>
 <li>Mind-blowing theory on God could spark new 21st-century religion</li>
 <li>The Big Short: Inside the Doomsday Machine, Michael Lewis</li>
 </ul>
 <h2>2023</h2>
 <ul>
 <li>Blindness, José Saramago</li>
-<li>The Great Stagnation, Tyler Cower</li>
-<li>Science: The Endless Frontier, Vannevar Bush</li>
-<li>A Gentleman in Moscow, Amor Towles</li>
-<li>Snow Falling on Cedars, David Guterson</li>
-<li>Free: Coming of Age at the End of History, Lea Ypi</li>
+<li><a href="../ramblings/reading-the-great-stagnation-tyler-cowen/">The Great Stagnation, Tyler Cower</a></li>
+<li><a href="../ramblings/reading-science-vannevar-bush/">Science: The Endless Frontier, Vannevar Bush</a></li>
+<li><a href="../ramblings/reading-a-gentleman-in-moscow-amor-towles/">A Gentleman in Moscow, Amor Towles</a></li>
+<li><a href="../ramblings/reading-snow-falling-on-cedars-david-guterson/">Snow Falling on Cedars, David Guterson</a></li>
+<li><a href="../ramblings/reading-free-lea-ypi/">Free: Coming of Age at the End of History, Lea Ypi</a></li>
 <li>Scaling People: Tactics for Management and Company Building, Claire Hughes Johnson</li>
 <li>Unbroken: A World War II Story of Survival, Resilience and Redemption, Laura Hillenbrand</li>
 <li>Shoe Dog, Phil Night</li>
 <li>The Old Man and the Sea, Ernest Hemingway</li>
 <li>Lessons from the Titans: What Companies in the New Economy Can Learn from the Great Industrial Giants to Drive Sustainable Success, Scott Davis, Carter Copeland, Rob Wertheimer</li>
-<li>Grant, Ron Chernow</li>
-<li>Tomorrow, and Tomorrow, and Tomorrow, Gabrielle Zevin</li>
+<li><a href="../ramblings/reading-grant-ron-chernow/">Grant, Ron Chernow</a></li>
+<li><a href="../ramblings/reading-tomorrow-and-tomorrow-and-tomorrow-gabrielle-zevin/">Tomorrow, and Tomorrow, and Tomorrow, Gabrielle Zevin</a></li>
 <li>Brave New Work: Are You Ready to Reinvent Your Organization?, Aaron Dignan</li>
-<li>Commons Stocks and Uncommon Profits and Other Writings, Philip A. Fisher</li>
-<li>The Last Lecture, Jeffrey Zaslow and Randy Pausch</li>
-<li>Station Eleven, Emily St. John Mandel</li>
-<li>I Am a Strange Loop, Douglas R. Hofstadter</li>
+<li><a href="../ramblings/reading-commons-stocks-and-uncommon-profits-and-other-writings-philip-a-fisher/">Commons Stocks and Uncommon Profits and Other Writings, Philip A. Fisher</a></li>
+<li><a href="../ramblings/reading-the-last-lecture-jeffrey-zaslow-and-randy-pausch/">The Last Lecture, Jeffrey Zaslow and Randy Pausch</a></li>
+<li><a href="../ramblings/reading-station-eleven-emily-st-john-mandel/">Station Eleven, Emily St. John Mandel</a></li>
+<li><a href="../ramblings/reading-i-am-a-strange-loop-douglas-r-hofstadter/">I Am a Strange Loop, Douglas R. Hofstadter</a></li>
 <li>Escaping the Build Trap: How Effective Product Management Creates Real Value, Melissa Perri</li>
-<li>Dune, Frank Herbert</li>
-<li>What Got You Here Won't Get You There: How Successful People Become Even More Successful, Marshall Goldsmith</li>
+<li><a href="../ramblings/reading-dune-frank-herbert/">Dune, Frank Herbert</a></li>
+<li><a href="../ramblings/reading-what-got-you-here-wont-get-you-there-marshall-goldsmith/">What Got You Here Won't Get You There: How Successful People Become Even More Successful, Marshall Goldsmith</a></li>
 </ul>
 <h2>2022</h2>
 <ul>
 <li>The Infinite Machine: How an Army of Crypto-hackers Is Building the Next Internet with Ethereum, Camila Russo</li>
 <li>The Alchemist, Paolo Coelho</li>
-<li>The Pillars of the Earth, Ken Follet</li>
-<li>The Best Writing on Mathematics 2019, Mircea Pitici</li>
+<li><a href="../ramblings/reading-the-pillars-of-the-earth-ken-follet/">The Pillars of the Earth, Ken Follet</a></li>
+<li><a href="../ramblings/reading-the-best-writing-on-mathematics-2019-mircea-pitici/">The Best Writing on Mathematics 2019, Mircea Pitici</a></li>
 <li>Love in the Time of Cholera, Gabriel García Márquez</li>
 <li>The Midnight Library, Matt Haig</li>
 <li>Talent: How to Identify Energizers, Creatives, and Winners Around the World, Daniel Gross and Tyler Cowen</li>
@@ -127,14 +161,14 @@ footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line);
 <ul>
 <li>Let Me Tell You What I Mean, Joan Didion</li>
 <li>Stubborn Attachments: A Vision for a Society of Free, Prosperous, and Responsible Individuals, Tyler Cowen</li>
-<li>Where the Crawdads Sing, Delia Owens</li>
+<li><a href="../ramblings/reading-where-the-crawdads-sing-delia-owens/">Where the Crawdads Sing, Delia Owens</a></li>
 <li>The Culture Code: The Secrets of Highly Successful Groups, Daniel Coyle</li>
 <li>Kitchen Confidential: Adventures in the Culinary Underbelly, Anthony Bourdain</li>
 <li>Educated, Tara Westover</li>
 <li>The Five Dysfunctions of a Team: A Leadership Fable, Patrick Lencioni</li>
 <li>The Bed of Procrustes: Philosophical and Practical Aphorisms, Nicholas Nassim Taleb</li>
-<li>The Many Lives &amp; Secret Sorrows of Josephine B., Sandra Gulland</li>
-<li>Working Backwards: Insights, Stories, and Secrets from Inside Amazon, Colin Bryar</li>
+<li><a href="../ramblings/reading-the-many-lives-and-secret-sorrows-of-josephine-b-sandra-gulland/">The Many Lives &amp; Secret Sorrows of Josephine B., Sandra Gulland</a></li>
+<li><a href="../ramblings/reading-working-backwards-colin-bryar/">Working Backwards: Insights, Stories, and Secrets from Inside Amazon, Colin Bryar</a></li>
 <li>The Silk Roads: A New History of the World, Peter Frankopan</li>
 <li>Trillion Dollar Coach: The Leadership Playbook of Silicon Valley’s Bill Campbell, Eric Schmidt</li>
 </ul>
@@ -153,6 +187,6 @@ footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line);
 <li>The Score Takes Care of Itself: My Philosophy of Leadership, Bill Walsh, Steve Jamison, Craig Walsh</li>
 </ul>
 </main>
-<footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
+<footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="mailto:anp042@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
 </body>
 </html>

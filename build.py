@@ -63,7 +63,20 @@ def render(body, prefix):
     return markdown.markdown(body, extensions=["extra", "sane_lists"])
 
 
-def page(path, title, content, description, extra_head=""):
+def inline(text):
+    """Render one line of markdown (e.g. a caption) without the wrapping <p>."""
+    return re.sub(r"^<p>|</p>$", "", markdown.markdown(text).strip())
+
+
+def plain(text):
+    return html.unescape(re.sub(r"<[^>]+>", "", inline(text)))
+
+
+def cover_url(p, prefix):
+    return prefix + p["cover"].lstrip("/") if p.get("cover") else ""
+
+
+def page(path, title, content, description, extra_head="", body_class=""):
     depth = path.count("/")
     prefix = "../" * depth
     full_title = SITE["name"] if not title else f"{title} | {SITE['name']}"
@@ -88,7 +101,7 @@ def page(path, title, content, description, extra_head=""):
 {extra_head}<style>
 {CSS}</style>
 </head>
-<body>
+<body{f' class="{body_class}"' if body_class else ""}>
 <header><a class="home" href="{prefix or './'}">{html.escape(SITE['name'])}</a><nav>{nav}</nav></header>
 <main>
 {content}
@@ -153,8 +166,24 @@ for p in pages:
     page(p["path"], p["title"], body, p.get("description") or first_words(p["body"]))
 
 # Ramblings index
-idx = f"<h1>Ramblings</h1>\n<p class=\"lede\">{html.escape(SITE['ramblings_note'])}</p>\n" + post_list(posts, "../")
-page("ramblings/", "Ramblings", idx, "Essays and reading notes by " + SITE["name"] + ".")
+def wall(items, prefix):
+    cards = []
+    for p in items:
+        href = prefix + p["path"]
+        art = (
+            f'<a class="art-link" href="{href}" tabindex="-1" aria-hidden="true">'
+            f'<img src="{cover_url(p, prefix)}" alt="" loading="lazy"></a>'
+            if p.get("cover") else "<span></span>"
+        )
+        cards.append(
+            f'<li>{art}<div class="placard"><h2><a href="{href}">{html.escape(p["title"])}</a></h2>'
+            f'<p class="meta"><time datetime="{p["date"]}">{nice_date(p["date"])}</time></p></div></li>'
+        )
+    return '<ul class="wall">\n' + "\n".join(cards) + "\n</ul>"
+
+
+idx = f"<h1>Ramblings</h1>\n<p class=\"lede\">{html.escape(SITE['ramblings_note'])}</p>\n" + wall(posts, "../")
+page("ramblings/", "Ramblings", idx, "Essays and reading notes by " + SITE["name"] + ".", body_class="wide")
 
 # Posts (HTML plus a raw markdown copy for agents)
 for p in posts:
@@ -166,13 +195,28 @@ for p in posts:
         "author": {"@type": "Person", "name": SITE["name"], "url": SITE["url"]},
     }
     head = f'<script type="application/ld+json">{json.dumps(article_ld)}</script>\n'
+    art = ""
+    if p.get("cover"):
+        caption = p.get("caption", "")
+        credit = inline(caption) if caption else ""
+        if p.get("cover_source"):
+            label = "Wikimedia Commons" if "wikimedia.org" in p["cover_source"] else "Source"
+            credit += (" · " if credit else "") + f'<a href="{html.escape(p["cover_source"], quote=True)}">{label}</a>'
+        art = (
+            f'<figure class="art"><img src="{cover_url(p, "../../")}" alt="{html.escape(plain(caption), quote=True) if caption else ""}">'
+            + (f"<figcaption>{credit}</figcaption>" if credit else "")
+            + "</figure>\n"
+        )
+    lede = f'<p class="lede">{inline(p["summary"])}</p>' if p.get("summary") else ""
     body = (
-        f"<article>\n<h1>{html.escape(p['title'])}</h1>\n"
-        f'<p class="meta">{html.escape(SITE["name"])} · <time datetime="{p["date"]}">{nice_date(p["date"])}</time></p>\n'
+        '<article class="post-grid">\n' + art
+        + '<div class="placard">'
+        f"<h1>{html.escape(p['title'])}</h1>\n"
+        f'<p class="meta">{html.escape(SITE["name"])} · <time datetime="{p["date"]}">{nice_date(p["date"])}</time></p>{lede}</div>\n'
         + render(p["body"], "../../")
         + "\n</article>"
     )
-    page(p["path"], p["title"], body, p.get("description") or first_words(p["body"]), head)
+    page(p["path"], p["title"], body, p.get("description") or first_words(p["body"]), head, body_class="wide")
     (OUT / "ramblings" / f"{p['slug']}.md").write_text(
         f"# {p['title']}\n\nBy {SITE['name']} · {p['date']}\n\n"
         + re.sub(

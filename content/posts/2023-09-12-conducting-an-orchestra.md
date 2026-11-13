@@ -2,6 +2,7 @@
 title: Conducting an Orchestra
 date: 2023-09-12
 notion_id: b6da32bab66d4c69ab88e72e71dca631
+cover: /assets/covers/conducting-an-orchestra.jpg
 ---
 > 📖 **Note:** Everything below is simply a compilation of ideas from [Ray Dalio](https://www.principles.com/principles/f7bfd72e-753c-4ba8-bae5-9fc8a43f6dfc/), [Steven Gambardella](https://stevengambardella.medium.com/manage-like-a-conductor-57a75275ecc2), and I’m sure plenty more, who express them more elegantly. Steven’s [post](https://stevengambardella.medium.com/manage-like-a-conductor-57a75275ecc2) also contains some video content showcasing the specific value of the conductor in the conductor-orchestra relationship.
 

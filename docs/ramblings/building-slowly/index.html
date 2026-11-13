@@ -14,9 +14,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Building Slowly", "datePublished": "2026-02-17", "author": {"@type": "Person", "name": "Armand Pizzicarola", "url": "https://www.armandpizzicarola.com/"}}</script>
 <style>
 :root { --fg: #37352f; --muted: #8a8780; --line: #e9e9e7; --bg: #fff; --link: #37352f; }
-@media (prefers-color-scheme: dark) {
-  :root { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
-}
+/* Light is the default. Dark palette kept for an explicit opt-in (<html data-theme="dark">), not the OS setting. */
+:root[data-theme="dark"] { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
 * { box-sizing: border-box; }
 body { margin: 0 auto; max-width: 44rem; padding: 2.5rem 1.25rem 4rem; background: var(--bg); color: var(--fg);
   font: 17px/1.65 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
@@ -37,23 +36,59 @@ img { max-width: 100%; height: auto; border-radius: 4px; }
 blockquote { margin: 1.25rem 0; padding: .1rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+
+/* ---- Gallery layout: wider pages for posts and the Ramblings index ---- */
+body.wide { max-width: 58rem; }
+.art img, .wall img { display: block; width: 100%; border-radius: 0; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 10px 24px -12px rgba(0,0,0,.25); }
+
+/* Post: art hangs in a narrow left column; every line of text shares one left edge */
+.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; }
+.post-grid > * { grid-column: 2; }
+.post-grid > .art { grid-column: 1; grid-row: 1; margin: .35rem 0 0; }
+.post-grid > .placard { grid-row: 1; align-self: end; }
+.art img { height: auto; }
+.art figcaption { margin-top: .75rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.placard { margin-bottom: 3rem; }
+.placard h1 { font-size: 1.75rem; margin: 0 0 .5rem; }
+.placard .meta { margin: 0; }
+.placard .lede { font-size: .95rem; line-height: 1.6; color: var(--muted); margin: 1.25rem 0 0; }
+
+/* Ramblings index: two across; small art left, title top, date on the bottom edge */
+.wall { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; }
+.wall li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); column-gap: 1.25rem; align-items: stretch; }
+.wall .art-link { display: block; }
+.wall img { aspect-ratio: 4 / 3; object-fit: cover; }
+.wall .placard { margin: 0; display: flex; flex-direction: column; justify-content: space-between; }
+.wall .placard h2 { font-size: 1.15rem; margin: 0 0 .3rem; line-height: 1.3; }
+.wall .placard h2 a { text-decoration: none; }
+.wall .placard h2 a:hover { text-decoration: underline; }
+.wall .placard .meta { margin: 0; line-height: 1; }
+
+@media (max-width: 720px) {
+  .post-grid { grid-template-columns: minmax(0, 1fr); }
+  .post-grid > *, .post-grid > .art, .post-grid > .placard { grid-column: 1; grid-row: auto; }
+  .post-grid > .art { max-width: 15rem; margin-bottom: 1.5rem; }
+  .wall { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
+  .wall li { grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1rem; }
+}
 </style>
 </head>
-<body>
+<body class="wide">
 <header><a class="home" href="../../">Armand Pizzicarola</a><nav><a href="../../about/">About</a> · <a href="../../ramblings/">Ramblings</a> · <a href="../../reading/">Reading</a></nav></header>
 <main>
-<article>
-<h1>Building Slowly</h1>
-<p class="meta">Armand Pizzicarola · <time datetime="2026-02-17">Feb 17, 2026</time></p>
+<article class="post-grid">
+<figure class="art"><img src="../../assets/covers/building-slowly.jpg" alt="Codex Manesse, fol. 164v, Leuthold von Seven, c. 1300–40"><figcaption><em>Codex Manesse</em>, fol. 164v, Leuthold von Seven, c. 1300–40 · <a href="https://commons.wikimedia.org/wiki/File:Codex_Manesse_Folio_164v_Leuthold_von_Seven.jpg">Wikimedia Commons</a></figcaption></figure>
+<div class="placard"><h1>Building Slowly</h1>
+<p class="meta">Armand Pizzicarola · <time datetime="2026-02-17">Feb 17, 2026</time></p></div>
 <p>This not ideal, by the way. <a href="https://patrickcollison.com/fast">Building fast</a> is the de facto ethos of the technology world (and for good reason). When building software, the only excuse for slowness is lethargy or a lack of urgency; both unacceptable. The feedback loop (whether it’s internal or external) is the specific thing I (and other operators) “work on”. Signal in competence or customer value needs to be delivered to the person who can do something about it and the better you can orchestrate this, the faster value is delivered and accrued.</p>
 <p>Recently, however, in building a physical product in my spare time, my notion of <em>pace</em> has been shaken. PrintStack turns my online feeds (Substack, RSS, Research Papers, etc) into a print journal delivered to me regularly. It requires some software of course, but the end product is the physical journal where I can engage with the content without distraction; just me and the words on the paper. Getting the software up an running felt fast. The limiting factor was my free time  and, thanks to Cursor and a few other tools, a production app that could generate a print-ready pdf out of my feeds was up in no time. But then it came time to <strong>print</strong>. I do not, as I assume is the case for most people, have a printing press at home. So once the PDF looked good enough, it was about 2 longs weeks before I received my first test press. Once I had it in my hands could I <em>feel</em> the product and notice many things that I didn’t notice when looking at the PDF online; the font was too large, hyperlinked text was styled as if I could click on it, spacing between titles of articles and the content was funky, etc. It then occurred to me, “was every product iteration cycle going to have two-week waiting period within?”.</p>
 <p>This is not my first time building a physical product. Years ago, my co-founder and I build a charging station powered by solar panels that could be dropped in anywhere (as long as there was sun). Although it was hardware (and yes, we had to wait for panels, batteries, inverters, etc to come from China), the feedback loop felt quicker because we were actually putting the hardware together, component by component. We could see the solar charging station come to life in front of our eyes. We continued building the frame and iterating on the design, reserving space for components that were still in transit. Because we had their exact specifications, we could build as though they were already present — invisible placeholders, but accounted for.</p>
-<p><em>[Image to be restored: IMG_4138.jpg]</em></p>
+<p><img alt="A solar charging station under construction" src="../../assets/building-slowly-1.jpg" /></p>
 <p>When it comes to PrintStack, I will not get to see the product (or even a copy of it) before it gets shipped to the customer. In software, rigorous testing (and an industry which works on this problem) is abound and the exact product the customer interacts with has had hundreds of hours of internal testing, beta-releases, etc. In hardware, prototypes are built and pushed to their limits until production begins to hum creating exact copies of the prototype that has passed the test. For PrintStack, however, the words on the page (which follows the file sent to the printer) is 1 of 1.</p>
 <p>I never realized how much noise is on a webpage until I started removing it myself — stripping away layers to get to the words and images underneath. I'm not the first to have this insight (<a href="https://chromewebstore.google.com/detail/ecabifbgmdmgdllomnfinbmaellmclnh?utm_source=item-share-cb">Reader View</a> got there long before me), but it took doing it myself to really appreciate it. I’ve spent the last few months doing exactly that. I’m sure there’s a faster way (piggybacking on Reader View libraries out there) to clean html content for print, but this is a rare opportunity I get to build slowly so I’m happy doing it the hard way.</p>
-<p><em>[Image to be restored: IMG_6666_(1).jpg]</em></p>
+<p><img alt="A printed PrintStack test journal" src="../../assets/building-slowly-2.jpg" /></p>
 </article>
 </main>
-<footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
+<footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="mailto:anp042@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
 </body>
 </html>

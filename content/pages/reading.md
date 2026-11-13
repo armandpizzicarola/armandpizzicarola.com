@@ -7,7 +7,7 @@ More important than the appreciation of a *book* is the appreciation of *reading
 
 ## 2026
 
-- Energy and Civilization: A History, Vaclav Smil
+- [Energy and Civilization: A History, Vaclav Smil](notion:30a38cc15c5c80519758f65da55493d6)
 - The Three-Body Problem, Cixin Liu
 - 1929: Inside the Greatest Crash in History – and How It Shattered a Nation, Andrew Ross Sorkin
 

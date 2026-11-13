@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Reading] The Crisis of The Early Italian Renaissance, Hans Baron | Armand Pizzicarola</title>
+<meta name="description" content="This book is out of my league, but I struggled through it anyway while in Italy. Although I feel like I only really grasped the content in a…">
+<meta name="author" content="Armand Pizzicarola">
+<link rel="canonical" href="https://www.armandpizzicarola.com/ramblings/reading-the-crisis-of-the-early-italian-renaissance-hans-baron/">
+<meta property="og:title" content="[Reading] The Crisis of The Early Italian Renaissance, Hans Baron | Armand Pizzicarola">
+<meta property="og:description" content="This book is out of my league, but I struggled through it anyway while in Italy. Although I feel like I only really grasped the content in a…">
+<meta property="og:url" content="https://www.armandpizzicarola.com/ramblings/reading-the-crisis-of-the-early-italian-renaissance-hans-baron/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "[Reading] The Crisis of The Early Italian Renaissance, Hans Baron", "datePublished": "2024-09-07", "author": {"@type": "Person", "name": "Armand Pizzicarola", "url": "https://www.armandpizzicarola.com/"}}</script>
+<style>
+:root { --fg: #37352f; --muted: #8a8780; --line: #e9e9e7; --bg: #fff; --link: #37352f; }
+/* Light is the default. Dark palette kept for an explicit opt-in (<html data-theme="dark">), not the OS setting. */
+:root[data-theme="dark"] { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
+* { box-sizing: border-box; }
+body { margin: 0 auto; max-width: 44rem; padding: 2.5rem 1.25rem 4rem; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+a { color: var(--link); text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--fg); }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; margin-bottom: 3rem; font-size: .95rem; }
+header .home { font-weight: 600; text-decoration: none; }
+header nav { color: var(--muted); }
+header nav a { text-decoration: none; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -.01em; }
+h2 { font-size: 1.2rem; margin: 2.5rem 0 .75rem; }
+.lede { color: var(--fg); }
+.meta, time { color: var(--muted); font-size: .9rem; }
+ul.posts { list-style: none; padding: 0; margin: 0; }
+ul.posts li { display: flex; gap: 1rem; padding: .45rem 0; border-bottom: 1px solid var(--line); }
+ul.posts time { flex: 0 0 6.5rem; padding-top: .1rem; }
+img { max-width: 100%; height: auto; border-radius: 4px; }
+blockquote { margin: 1.25rem 0; padding: .1rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+
+/* ---- Gallery layout: wider pages for posts and the Ramblings index ---- */
+body.wide { max-width: 58rem; }
+.art img, .wall img { display: block; width: 100%; border-radius: 0; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 10px 24px -12px rgba(0,0,0,.25); }
+
+/* Post: art hangs in a narrow left column; every line of text shares one left edge */
+.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; }
+.post-grid > * { grid-column: 2; }
+.post-grid > .art { grid-column: 1; grid-row: 1; margin: .35rem 0 0; }
+.post-grid > .placard { grid-row: 1; align-self: end; }
+.art img { height: auto; }
+.art figcaption { margin-top: .75rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.placard { margin-bottom: 3rem; }
+.placard h1 { font-size: 1.75rem; margin: 0 0 .5rem; }
+.placard .meta { margin: 0; }
+.placard .lede { font-size: .95rem; line-height: 1.6; color: var(--muted); margin: 1.25rem 0 0; }
+
+/* Ramblings index: two across; small art left, title top, date on the bottom edge */
+.wall { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; }
+.wall li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); column-gap: 1.25rem; align-items: stretch; }
+.wall .art-link { display: block; }
+.wall img { aspect-ratio: 4 / 3; object-fit: cover; }
+.wall .placard { margin: 0; display: flex; flex-direction: column; justify-content: space-between; }
+.wall .placard h2 { font-size: 1.15rem; margin: 0 0 .3rem; line-height: 1.3; }
+.wall .placard h2 a { text-decoration: none; }
+.wall .placard h2 a:hover { text-decoration: underline; }
+.wall .placard .meta { margin: 0; line-height: 1; }
+
+@media (max-width: 720px) {
+  .post-grid { grid-template-columns: minmax(0, 1fr); }
+  .post-grid > *, .post-grid > .art, .post-grid > .placard { grid-column: 1; grid-row: auto; }
+  .post-grid > .art { max-width: 15rem; margin-bottom: 1.5rem; }
+  .wall { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
+  .wall li { grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1rem; }
+}
+</style>
+</head>
+<body class="wide">
+<header><a class="home" href="../../">Armand Pizzicarola</a><nav><a href="../../about/">About</a> · <a href="../../ramblings/">Ramblings</a> · <a href="../../reading/">Reading</a></nav></header>
+<main>
+<article class="post-grid">
+<figure class="art"><img src="../../assets/covers/reading-the-crisis-of-the-early-italian-renaissance-hans-baron.jpg" alt=""></figure>
+<div class="placard"><h1>[Reading] The Crisis of The Early Italian Renaissance, Hans Baron</h1>
+<p class="meta">Armand Pizzicarola · <time datetime="2024-09-07">Sep 7, 2024</time></p></div>
+<p>This book is out of my league, but I struggled through it anyway while in Italy. Although I feel like I only really grasped the content in a third of the chapters, it was enough to provoke thought and give me a sense of how advanced Florentine life in the 14th and 15th centuries actually was. It's an astonishing reminder of why the Renaissance has the reputation it does as one of the most important inflection points for humanity of all time.</p>
+<p>Here are a few quotes I highlighted…</p>
+<blockquote>
+<p>“In Conversino's eyes security, progress, and patronage are not found anywhere but under tyranny, and thus the final answer in the quest for the "preferable way of life" amounts to this: No true freedom can be found in this world, excepting the freedom of the man who, inspired by religious faith, renounces all things of this world, honors, possessions, and family. The only other way to what men may call "freedom" is a carefree country life in the midst of nature, dedicated to study and literary work, and this under the protection of a prince who sees to it that all men, assured of the stability of the public order, can follow their own pursuits, and that private, conflicting ambitions do not result in constant strife.”</p>
+</blockquote>
+<p>The problem is, when men take to the country for a carefree life of study and religious work, it's only a matter of time until humanistic opinions emerge. Then what? The Communist Party has learned that unless they are in complete control of the narrative, dissenting opinions will emerge. Even though tyrannical, I doubt that North Korea would encourage their citizens to move to the countryside and reflect, but I could be wrong. I'll report back as my next book is <a href="https://www.amazon.com/Under-Loving-Care-Fatherly-Leader/dp/0312323220">Under the Loving Care of the Fatherly Leader: North Korea and the Kim Dynasty</a>.</p>
+<p>The debate between a quiet country life and an involved public one is new to me. I figure that nowadays, this is merely a matter of taste, but apparently not always so? On one side of the debate, a quiet life in the country is esteemed, likely promoting self-reflection. On the other side, however, progress (overall) may suffer as a result. I believe that the selection effect in today's world takes care of the dispute; if you desire to live a quiet life, you're better off not involved in politics (and vice versa).</p>
+<blockquote>
+<p>“Family, Church, Empire: each of them of is ruled by one head; consequently, past and present experience of the greater efficiency of tyranny only confirms what has to be expected”</p>
+</blockquote>
+<p>If “efficiency” is the end goal, I see no fault with the above statement. Obviously, the question is, to what extend is efficiency to be optimized? I see that men like to be busy; it’s an innate part of us. If we are not busy fighting amongst ourselves for the best possible government, we will fighting with others to expand it. We can’t sit still. Then, the tradeoff becomes a bit more apparent in my eyes; <em>external</em> or <em>internal “fighting”</em>?</p>
+</article>
+</main>
+<footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="mailto:anp042@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
+</body>
+</html>

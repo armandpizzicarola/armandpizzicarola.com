@@ -11,6 +11,7 @@ serves the `docs/` folder as-is.
 - `assets/` — images, referenced in markdown as `/assets/<file>`
 - `site.json` — name, homepage bio, links, structured-data fields
 - `style.css` — the whole design (inlined into every page)
+- `search.js` — the ⌘K search palette; it reads `docs/search.json`, which the build writes
 - `build.py` — builds everything into `docs/` (needs `pip install markdown`)
 - `docs/` — generated output. Never edit by hand; always commit it after a build.
 

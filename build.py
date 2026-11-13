@@ -149,6 +149,7 @@ def page(path, title, content, description, extra_head="", body_class="", image=
 <meta name="twitter:image" content="{html.escape(image, quote=True)}">
 {extra_head}<style>
 {CSS}</style>
+<script defer src="{prefix}search.js" data-root="{prefix}"></script>
 </head>
 <body{f' class="{body_class}"' if body_class else ""}>
 <header><a class="home" href="{prefix or './'}">{html.escape(SITE['name'])}</a><nav>{nav}</nav></header>
@@ -187,6 +188,7 @@ OUT.mkdir()
 (OUT / ".nojekyll").write_text("")
 if (ROOT / "assets").exists():
     shutil.copytree(ROOT / "assets", OUT / "assets")
+shutil.copy(ROOT / "search.js", OUT / "search.js")
 if SITE.get("custom_domain"):
     (OUT / "CNAME").write_text(SITE["custom_domain"] + "\n")
 
@@ -290,6 +292,16 @@ for p in posts:
             p["body"],
         ).replace("](/assets/", f"]({SITE['url']}assets/")
     )
+
+# search.json: one entry per page and post, with its text flattened for client-side search
+def flat(body):
+    return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", render(body, ""))).split())
+
+
+index = [{"t": p["title"], "u": p["path"], "k": "page", "x": flat(p["body"])} for p in pages] + [
+    {"t": p["title"], "u": p["path"], "d": p["date"], "k": "post", "x": flat(embed_tweets(p["body"])[0])} for p in posts
+]
+(OUT / "search.json").write_text(json.dumps(index, ensure_ascii=False))
 
 # llms.txt, sitemap.xml, robots.txt
 base = SITE["url"].rstrip("/")

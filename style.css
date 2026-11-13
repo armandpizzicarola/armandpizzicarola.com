@@ -38,6 +38,15 @@ body.wide { max-width: 58rem; }
 .placard .meta { margin: 0; }
 .placard .lede { font-size: .95rem; line-height: 1.6; color: var(--muted); margin: 1.25rem 0 0; }
 
+/* Home: the three sections as a short list, then the gallery */
+.index { list-style: none; padding: 0; margin: 0 0 3rem; }
+.index li { margin: .3rem 0; }
+.index a { display: inline-flex; align-items: center; gap: .6rem; font-size: 1.15rem; font-weight: 500; text-decoration: none; }
+.index a:hover { text-decoration: underline; }
+.index svg { width: 1.15em; height: 1.15em; fill: none; stroke: var(--muted); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+body.home .wall { margin-top: 0; }
+.more { margin: 2.5rem 0 0; }
+
 /* Ramblings index: two across; small art left, title top, date on the bottom edge */
 .wall { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; }
 .wall li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); column-gap: 1.25rem; align-items: stretch; }

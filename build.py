@@ -221,21 +221,8 @@ def wall(items, prefix):
 
 
 
-# Home: name, the three sections as a short index, then a clipped gallery of recent posts
-ICONS = {
-    "about": '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>',
-    "ramblings": '<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/>',
-    "reading": '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
-}
-index = "\n".join(
-    f'<li><a href="{key}/"><svg viewBox="0 0 24 24" aria-hidden="true">{ICONS[key]}</svg>{label}</a></li>'
-    for key, label in [("about", "About"), ("ramblings", "Ramblings"), ("reading", "Reading")]
-)
-home = f"""<h1>{html.escape(SITE['name'])}</h1>
-<ul class="index">
-{index}
-</ul>
-{wall(posts[:6], "")}
+# Home: a clipped gallery of recent posts, straight under the header
+home = f"""{wall(posts[:6], "")}
 <p class="more"><a href="ramblings/">All ramblings →</a></p>"""
 page("", "", home, SITE["description"], person_ld, body_class="wide home")
 

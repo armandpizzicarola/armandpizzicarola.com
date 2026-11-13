@@ -4,7 +4,7 @@
 Usage:  python3 build.py
 Needs:  pip install markdown
 """
-import datetime, html, json, pathlib, re, shutil
+import datetime, html, json, pathlib, re, shutil, sys, urllib.parse, urllib.request
 import markdown
 
 ROOT = pathlib.Path(__file__).parent
@@ -51,6 +51,46 @@ for p in sorted((ROOT / "content/pages").glob("*.md")):
 # migrated, and fall back to plain text if it has not.
 by_notion = {x["notion_id"]: x["path"] for x in posts + pages if x.get("notion_id")}
 by_notion.update(SITE.get("notion_aliases", {}))
+
+
+# ---- tweets ---------------------------------------------------------------
+# A tweet link on a line of its own is embedded. The tweet's text and author
+# come from X's oEmbed endpoint at build time and are cached in
+# content/tweets.json, so the page reads fine without JavaScript (and after
+# the tweet is deleted); X's widget script then dresses it up in the browser.
+TWEETS = ROOT / "content/tweets.json"
+tweets = json.loads(TWEETS.read_text()) if TWEETS.exists() else {}
+TWEET_LINE = re.compile(r"^<?(https?://(?:x|twitter)\.com/\w+/status/(\d+))[^>\s]*>?$", re.M)
+TWEET_SCRIPT = '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>\n'
+
+
+def tweet_html(url, tweet_id):
+    if tweet_id not in tweets:
+        q = urllib.parse.urlencode({"url": url, "omit_script": "1", "dnt": "1"})
+        try:
+            with urllib.request.urlopen(f"https://publish.x.com/oembed?{q}", timeout=10) as r:
+                data = json.loads(r.read())
+            tweets[tweet_id] = {"url": url, "author": data["author_name"], "html": data["html"].strip()}
+            TWEETS.write_text(json.dumps(tweets, indent=2, ensure_ascii=False) + "\n")
+        except Exception as e:  # leave the plain link in place
+            print(f"warning: could not fetch tweet {tweet_id}: {e}", file=sys.stderr)
+            return None
+    return tweets[tweet_id]["html"]
+
+
+def embed_tweets(body):
+    """Return (markdown with tweet lines swapped for embed HTML, whether any were embedded)."""
+    found = False
+
+    def swap(m):
+        nonlocal found
+        h = tweet_html(m.group(1), m.group(2))
+        if h is None:
+            return m.group(0)
+        found = True
+        return h
+
+    return TWEET_LINE.sub(swap, body), found
 
 
 def render(body, prefix):
@@ -216,6 +256,9 @@ for p in posts:
         "author": {"@type": "Person", "name": SITE["name"], "url": SITE["url"]},
     }
     head = f'<script type="application/ld+json">{json.dumps(article_ld)}</script>\n'
+    post_md, has_tweets = embed_tweets(p["body"])
+    if has_tweets:
+        head += TWEET_SCRIPT
     art = ""
     if p.get("cover"):
         caption = p.get("caption", "")
@@ -234,7 +277,7 @@ for p in posts:
         + '<div class="text"><div class="placard">'
         f"<h1>{html.escape(p['title'])}</h1>\n"
         f'<p class="meta">{html.escape(SITE["name"])} · <time datetime="{p["date"]}">{nice_date(p["date"])}</time></p>{lede}</div>\n'
-        + render(p["body"], "../../")
+        + render(post_md, "../../")
         + "\n</div></article>"
     )
     cover_abs = SITE["url"].rstrip("/") + "/" + p["cover"].lstrip("/") if p.get("cover") else ""

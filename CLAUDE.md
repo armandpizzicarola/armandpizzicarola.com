@@ -29,7 +29,9 @@ When asked to "publish <title> from Notion":
      resolves them to local pages, or to plain text if that page is not migrated.
    - Download images into `assets/` (Notion file links expire) and reference them
      as `![alt](/assets/<file>)`.
-   - Embedded tweets: link to the tweet URL.
+   - Embedded tweets: put the tweet URL on a line of its own, as `<https://x.com/...>`.
+     The build fetches the tweet text once into `content/tweets.json` (commit it)
+     and embeds it; a tweet link inside a sentence stays a plain link.
 4. If the book is new, add it to `content/pages/reading.md` under the right year.
 5. Run `python3 build.py`, check the new page in `docs/`, then commit and push.
 

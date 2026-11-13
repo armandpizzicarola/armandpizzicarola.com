@@ -19,6 +19,10 @@ ul.posts li { display: flex; gap: 1rem; padding: .45rem 0; border-bottom: 1px so
 ul.posts time { flex: 0 0 6.5rem; padding-top: .1rem; }
 img { max-width: 100%; height: auto; border-radius: 4px; }
 blockquote { margin: 1.25rem 0; padding: .1rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+/* Embedded tweet before (or without) X's widget script: a quiet card, not a pull quote */
+blockquote.twitter-tweet { margin: 1.5rem 0; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: 12px; color: var(--fg); max-width: 550px; }
+blockquote.twitter-tweet p { margin: 0 0 .5rem; }
+.twitter-tweet-rendered { margin: 1.5rem 0 !important; }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
 

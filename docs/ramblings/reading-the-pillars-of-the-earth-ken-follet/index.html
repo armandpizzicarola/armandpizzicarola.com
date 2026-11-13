@@ -21,15 +21,15 @@
 :root[data-theme="dark"] { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
 * { box-sizing: border-box; }
 body { margin: 0 auto; max-width: 44rem; padding: 2.5rem 1.25rem 4rem; background: var(--bg); color: var(--fg);
-  font: 17px/1.65 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  font: 15px/1.6 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
 a { color: var(--link); text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 3px; }
 a:hover { text-decoration-color: var(--fg); }
 header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; margin-bottom: 3rem; font-size: .95rem; }
 header .home { font-weight: 600; text-decoration: none; }
 header nav { color: var(--muted); }
 header nav a { text-decoration: none; }
-h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -.01em; }
-h2 { font-size: 1.2rem; margin: 2.5rem 0 .75rem; }
+h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -.01em; }
+h2 { font-size: 1.15rem; margin: 2.5rem 0 .75rem; }
 .lede { color: var(--fg); }
 .meta, time { color: var(--muted); font-size: .9rem; }
 ul.posts { list-style: none; padding: 0; margin: 0; }
@@ -45,14 +45,12 @@ body.wide { max-width: 58rem; }
 .art img, .wall img { display: block; width: 100%; border-radius: 0; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 10px 24px -12px rgba(0,0,0,.25); }
 
 /* Post: art hangs in a narrow left column; every line of text shares one left edge */
-.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; }
-.post-grid > * { grid-column: 2; }
-.post-grid > .art { grid-column: 1; grid-row: 1; margin: .35rem 0 0; }
-.post-grid > .placard { grid-row: 1; align-self: end; }
+.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; align-items: start; }
+.post-grid > .art { margin: .35rem 0 0; }
 .art img { height: auto; }
 .art figcaption { margin-top: .75rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
-.placard { margin-bottom: 3rem; }
-.placard h1 { font-size: 1.75rem; margin: 0 0 .5rem; }
+.placard { margin-bottom: 2.5rem; }
+.placard h1 { font-size: 1.6rem; margin: 0 0 .5rem; }
 .placard .meta { margin: 0; }
 .placard .lede { font-size: .95rem; line-height: 1.6; color: var(--muted); margin: 1.25rem 0 0; }
 
@@ -78,7 +76,6 @@ body.home .wall { margin-top: 0; }
 
 @media (max-width: 720px) {
   .post-grid { grid-template-columns: minmax(0, 1fr); }
-  .post-grid > *, .post-grid > .art, .post-grid > .placard { grid-column: 1; grid-row: auto; }
   .post-grid > .art { max-width: 15rem; margin-bottom: 1.5rem; }
   .wall { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
   .wall li { grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1rem; }
@@ -90,14 +87,14 @@ body.home .wall { margin-top: 0; }
 <main>
 <article class="post-grid">
 <figure class="art"><img src="../../assets/covers/reading-the-pillars-of-the-earth-ken-follet.jpg" alt=""></figure>
-<div class="placard"><h1>[Reading] The Pillars of the Earth, Ken Follet</h1>
+<div class="text"><div class="placard"><h1>[Reading] The Pillars of the Earth, Ken Follet</h1>
 <p class="meta">Armand Pizzicarola · <time datetime="2022-10-09">Oct 9, 2022</time></p></div>
 <p>This book is longer than I thought. One of the disadvantages (or maybe advantages?) of reading on a Kindle is that I really have no idea how long the book is. Of course, there’s the progress bar that indicates how far along I am, but it’s not the measured mark of progress that’s present with a physical book. Anyways…long, but good in a subtle way in my opinion.</p>
 <p>As with any story, action ebbs and flows. The presumed “high points” contain battle scenes, political maneuvering, hunger, and other shocks, while the subtle moments are ramblings on architecture, masonry and things that progress <em>slowly</em>. I think part of the allure of this book to me is that the center of the story (the building of the cathedral) can sometimes hide as a side-story, but as the plot moves along, it becomes clear that it’s the center. And all of the “high points” are really just the supporting acts.</p>
 <p>Full disclosure, I haven’t yet finished they book so my thoughts may be somewhat half-baked, but I’ve read enough to have formed an opinion, not only about the book, but about the genre, historical fiction, as well. For some reason, with historical fiction, my mind tries harder to visualize the setting (characters, locations, major conflicts, etc). This is likely because, at least to some extent, it all <em>existed</em>, which allows me to cross-check some of the major aspects of the setting. Although imagination plays a major role in any reader’s experience, having historical relevance adds clarity to the picture for me, and thus, adds to the excitement.</p>
 <p>In line with being able to better visualize or imagine the setting, I’ve recently visited the UK and was able to pop out of London for 2 hour train ride to York. Thinking back, it would have been quite the experience to have started reading The Pillars of The Earth prior to the trip. The countryside, as a start, would take me immediately to William Hamleigh’s frequent long-distant raids. Additionally, it’s easy imagine Tom the Builder, Philip the Prior, etc roaming around the backdrop of what’s visible from the train as well (can’t help but to also think about <a href="https://www.imdb.com/title/tt10541088/episodes">Clarkson’s Farm</a>).  And the cathedrals; well, of course it would have been nice to imagine the story behind each one.</p>
 <p>In closing, I read somewhere that this book was somewhat a departure — an 800 page one at that — from what Ken Follett usually writes. What if more people took the narrow path of interest? In this case, it ended up being the his most successful writing. I can’t help but to see this as a real world example of Robert Frost’s <em>The Road Not Taken</em> in which “[he] took the one less travelled by, and that has made all the difference.” Sounds like we should do more of that.</p>
-</article>
+</div></article>
 </main>
 <footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="mailto:anp042@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
 </body>

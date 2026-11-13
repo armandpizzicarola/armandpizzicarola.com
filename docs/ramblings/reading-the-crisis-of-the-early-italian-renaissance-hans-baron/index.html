@@ -21,15 +21,15 @@
 :root[data-theme="dark"] { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
 * { box-sizing: border-box; }
 body { margin: 0 auto; max-width: 44rem; padding: 2.5rem 1.25rem 4rem; background: var(--bg); color: var(--fg);
-  font: 17px/1.65 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  font: 15px/1.6 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
 a { color: var(--link); text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 3px; }
 a:hover { text-decoration-color: var(--fg); }
 header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; margin-bottom: 3rem; font-size: .95rem; }
 header .home { font-weight: 600; text-decoration: none; }
 header nav { color: var(--muted); }
 header nav a { text-decoration: none; }
-h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -.01em; }
-h2 { font-size: 1.2rem; margin: 2.5rem 0 .75rem; }
+h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -.01em; }
+h2 { font-size: 1.15rem; margin: 2.5rem 0 .75rem; }
 .lede { color: var(--fg); }
 .meta, time { color: var(--muted); font-size: .9rem; }
 ul.posts { list-style: none; padding: 0; margin: 0; }
@@ -45,14 +45,12 @@ body.wide { max-width: 58rem; }
 .art img, .wall img { display: block; width: 100%; border-radius: 0; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 10px 24px -12px rgba(0,0,0,.25); }
 
 /* Post: art hangs in a narrow left column; every line of text shares one left edge */
-.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; }
-.post-grid > * { grid-column: 2; }
-.post-grid > .art { grid-column: 1; grid-row: 1; margin: .35rem 0 0; }
-.post-grid > .placard { grid-row: 1; align-self: end; }
+.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; align-items: start; }
+.post-grid > .art { margin: .35rem 0 0; }
 .art img { height: auto; }
 .art figcaption { margin-top: .75rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
-.placard { margin-bottom: 3rem; }
-.placard h1 { font-size: 1.75rem; margin: 0 0 .5rem; }
+.placard { margin-bottom: 2.5rem; }
+.placard h1 { font-size: 1.6rem; margin: 0 0 .5rem; }
 .placard .meta { margin: 0; }
 .placard .lede { font-size: .95rem; line-height: 1.6; color: var(--muted); margin: 1.25rem 0 0; }
 
@@ -78,7 +76,6 @@ body.home .wall { margin-top: 0; }
 
 @media (max-width: 720px) {
   .post-grid { grid-template-columns: minmax(0, 1fr); }
-  .post-grid > *, .post-grid > .art, .post-grid > .placard { grid-column: 1; grid-row: auto; }
   .post-grid > .art { max-width: 15rem; margin-bottom: 1.5rem; }
   .wall { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
   .wall li { grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1rem; }
@@ -90,7 +87,7 @@ body.home .wall { margin-top: 0; }
 <main>
 <article class="post-grid">
 <figure class="art"><img src="../../assets/covers/reading-the-crisis-of-the-early-italian-renaissance-hans-baron.jpg" alt=""></figure>
-<div class="placard"><h1>[Reading] The Crisis of The Early Italian Renaissance, Hans Baron</h1>
+<div class="text"><div class="placard"><h1>[Reading] The Crisis of The Early Italian Renaissance, Hans Baron</h1>
 <p class="meta">Armand Pizzicarola · <time datetime="2024-09-07">Sep 7, 2024</time></p></div>
 <p>This book is out of my league, but I struggled through it anyway while in Italy. Although I feel like I only really grasped the content in a third of the chapters, it was enough to provoke thought and give me a sense of how advanced Florentine life in the 14th and 15th centuries actually was. It's an astonishing reminder of why the Renaissance has the reputation it does as one of the most important inflection points for humanity of all time.</p>
 <p>Here are a few quotes I highlighted…</p>
@@ -103,7 +100,7 @@ body.home .wall { margin-top: 0; }
 <p>“Family, Church, Empire: each of them of is ruled by one head; consequently, past and present experience of the greater efficiency of tyranny only confirms what has to be expected”</p>
 </blockquote>
 <p>If “efficiency” is the end goal, I see no fault with the above statement. Obviously, the question is, to what extend is efficiency to be optimized? I see that men like to be busy; it’s an innate part of us. If we are not busy fighting amongst ourselves for the best possible government, we will fighting with others to expand it. We can’t sit still. Then, the tradeoff becomes a bit more apparent in my eyes; <em>external</em> or <em>internal “fighting”</em>?</p>
-</article>
+</div></article>
 </main>
 <footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="mailto:anp042@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
 </body>

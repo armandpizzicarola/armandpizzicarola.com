@@ -231,11 +231,11 @@ for p in posts:
     lede = f'<p class="lede">{inline(p["summary"])}</p>' if p.get("summary") else ""
     body = (
         '<article class="post-grid">\n' + art
-        + '<div class="placard">'
+        + '<div class="text"><div class="placard">'
         f"<h1>{html.escape(p['title'])}</h1>\n"
         f'<p class="meta">{html.escape(SITE["name"])} · <time datetime="{p["date"]}">{nice_date(p["date"])}</time></p>{lede}</div>\n'
         + render(p["body"], "../../")
-        + "\n</article>"
+        + "\n</div></article>"
     )
     cover_abs = SITE["url"].rstrip("/") + "/" + p["cover"].lstrip("/") if p.get("cover") else ""
     page(p["path"], p["title"], body, p.get("description") or first_words(p["body"]), head, body_class="wide", image=cover_abs)

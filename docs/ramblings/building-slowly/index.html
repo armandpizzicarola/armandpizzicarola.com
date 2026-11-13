@@ -21,15 +21,15 @@
 :root[data-theme="dark"] { --fg: #e6e6e4; --muted: #9b9a97; --line: #2f2f2f; --bg: #191919; --link: #e6e6e4; }
 * { box-sizing: border-box; }
 body { margin: 0 auto; max-width: 44rem; padding: 2.5rem 1.25rem 4rem; background: var(--bg); color: var(--fg);
-  font: 17px/1.65 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  font: 15px/1.6 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
 a { color: var(--link); text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 3px; }
 a:hover { text-decoration-color: var(--fg); }
 header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; margin-bottom: 3rem; font-size: .95rem; }
 header .home { font-weight: 600; text-decoration: none; }
 header nav { color: var(--muted); }
 header nav a { text-decoration: none; }
-h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -.01em; }
-h2 { font-size: 1.2rem; margin: 2.5rem 0 .75rem; }
+h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -.01em; }
+h2 { font-size: 1.15rem; margin: 2.5rem 0 .75rem; }
 .lede { color: var(--fg); }
 .meta, time { color: var(--muted); font-size: .9rem; }
 ul.posts { list-style: none; padding: 0; margin: 0; }
@@ -45,14 +45,12 @@ body.wide { max-width: 58rem; }
 .art img, .wall img { display: block; width: 100%; border-radius: 0; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 10px 24px -12px rgba(0,0,0,.25); }
 
 /* Post: art hangs in a narrow left column; every line of text shares one left edge */
-.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; }
-.post-grid > * { grid-column: 2; }
-.post-grid > .art { grid-column: 1; grid-row: 1; margin: .35rem 0 0; }
-.post-grid > .placard { grid-row: 1; align-self: end; }
+.post-grid { display: grid; grid-template-columns: 15rem minmax(0, 40rem); column-gap: 3rem; justify-content: center; align-items: start; }
+.post-grid > .art { margin: .35rem 0 0; }
 .art img { height: auto; }
 .art figcaption { margin-top: .75rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
-.placard { margin-bottom: 3rem; }
-.placard h1 { font-size: 1.75rem; margin: 0 0 .5rem; }
+.placard { margin-bottom: 2.5rem; }
+.placard h1 { font-size: 1.6rem; margin: 0 0 .5rem; }
 .placard .meta { margin: 0; }
 .placard .lede { font-size: .95rem; line-height: 1.6; color: var(--muted); margin: 1.25rem 0 0; }
 
@@ -78,7 +76,6 @@ body.home .wall { margin-top: 0; }
 
 @media (max-width: 720px) {
   .post-grid { grid-template-columns: minmax(0, 1fr); }
-  .post-grid > *, .post-grid > .art, .post-grid > .placard { grid-column: 1; grid-row: auto; }
   .post-grid > .art { max-width: 15rem; margin-bottom: 1.5rem; }
   .wall { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
   .wall li { grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1rem; }
@@ -90,7 +87,7 @@ body.home .wall { margin-top: 0; }
 <main>
 <article class="post-grid">
 <figure class="art"><img src="../../assets/covers/building-slowly.jpg" alt="Codex Manesse, fol. 164v, Leuthold von Seven, c. 1300–40"><figcaption><em>Codex Manesse</em>, fol. 164v, Leuthold von Seven, c. 1300–40 · <a href="https://commons.wikimedia.org/wiki/File:Codex_Manesse_Folio_164v_Leuthold_von_Seven.jpg">Wikimedia Commons</a></figcaption></figure>
-<div class="placard"><h1>Building Slowly</h1>
+<div class="text"><div class="placard"><h1>Building Slowly</h1>
 <p class="meta">Armand Pizzicarola · <time datetime="2026-02-17">Feb 17, 2026</time></p></div>
 <p>This not ideal, by the way. <a href="https://patrickcollison.com/fast">Building fast</a> is the de facto ethos of the technology world (and for good reason). When building software, the only excuse for slowness is lethargy or a lack of urgency; both unacceptable. The feedback loop (whether it’s internal or external) is the specific thing I (and other operators) “work on”. Signal in competence or customer value needs to be delivered to the person who can do something about it and the better you can orchestrate this, the faster value is delivered and accrued.</p>
 <p>Recently, however, in building a physical product in my spare time, my notion of <em>pace</em> has been shaken. PrintStack turns my online feeds (Substack, RSS, Research Papers, etc) into a print journal delivered to me regularly. It requires some software of course, but the end product is the physical journal where I can engage with the content without distraction; just me and the words on the paper. Getting the software up an running felt fast. The limiting factor was my free time  and, thanks to Cursor and a few other tools, a production app that could generate a print-ready pdf out of my feeds was up in no time. But then it came time to <strong>print</strong>. I do not, as I assume is the case for most people, have a printing press at home. So once the PDF looked good enough, it was about 2 longs weeks before I received my first test press. Once I had it in my hands could I <em>feel</em> the product and notice many things that I didn’t notice when looking at the PDF online; the font was too large, hyperlinked text was styled as if I could click on it, spacing between titles of articles and the content was funky, etc. It then occurred to me, “was every product iteration cycle going to have two-week waiting period within?”.</p>
@@ -99,7 +96,7 @@ body.home .wall { margin-top: 0; }
 <p>When it comes to PrintStack, I will not get to see the product (or even a copy of it) before it gets shipped to the customer. In software, rigorous testing (and an industry which works on this problem) is abound and the exact product the customer interacts with has had hundreds of hours of internal testing, beta-releases, etc. In hardware, prototypes are built and pushed to their limits until production begins to hum creating exact copies of the prototype that has passed the test. For PrintStack, however, the words on the page (which follows the file sent to the printer) is 1 of 1.</p>
 <p>I never realized how much noise is on a webpage until I started removing it myself — stripping away layers to get to the words and images underneath. I'm not the first to have this insight (<a href="https://chromewebstore.google.com/detail/ecabifbgmdmgdllomnfinbmaellmclnh?utm_source=item-share-cb">Reader View</a> got there long before me), but it took doing it myself to really appreciate it. I’ve spent the last few months doing exactly that. I’m sure there’s a faster way (piggybacking on Reader View libraries out there) to clean html content for print, but this is a rare opportunity I get to build slowly so I’m happy doing it the hard way.</p>
 <p><img alt="A printed PrintStack test journal" src="../../assets/building-slowly-2.jpg" /></p>
-</article>
+</div></article>
 </main>
 <footer><a href="https://twitter.com/aarmandooooo">Twitter</a> · <a href="mailto:anp042@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/armandpizzicarola/">LinkedIn</a></footer>
 </body>

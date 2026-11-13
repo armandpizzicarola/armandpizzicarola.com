@@ -76,11 +76,17 @@ def cover_url(p, prefix):
     return prefix + p["cover"].lstrip("/") if p.get("cover") else ""
 
 
-def page(path, title, content, description, extra_head="", body_class=""):
+PORTRAIT = SITE["url"].rstrip("/") + "/assets/armand.jpg"
+
+
+def page(path, title, content, description, extra_head="", body_class="", image=""):
     depth = path.count("/")
     prefix = "../" * depth
     full_title = SITE["name"] if not title else f"{title} | {SITE['name']}"
     url = SITE["url"].rstrip("/") + "/" + path
+    # Link previews: a post shows its cover art; every other page shows the portrait.
+    card = "summary_large_image" if image else "summary"
+    image = image or PORTRAIT
     nav = " · ".join(
         f'<a href="{prefix}{href}">{label}</a>'
         for label, href in [("About", "about/"), ("Ramblings", "ramblings/"), ("Reading", "reading/")]
@@ -98,6 +104,9 @@ def page(path, title, content, description, extra_head="", body_class=""):
 <meta property="og:description" content="{html.escape(description, quote=True)}">
 <meta property="og:url" content="{url}">
 <meta property="og:type" content="website">
+<meta property="og:image" content="{html.escape(image, quote=True)}">
+<meta name="twitter:card" content="{card}">
+<meta name="twitter:image" content="{html.escape(image, quote=True)}">
 {extra_head}<style>
 {CSS}</style>
 </head>
@@ -149,6 +158,7 @@ person = {
     "jobTitle": SITE["job_title"],
     "worksFor": {"@type": "Organization", "name": SITE["works_for"]},
     "sameAs": SITE["same_as"],
+    "image": PORTRAIT,
 }
 person_ld = f'<script type="application/ld+json">{json.dumps(person)}</script>\n'
 
@@ -216,7 +226,8 @@ for p in posts:
         + render(p["body"], "../../")
         + "\n</article>"
     )
-    page(p["path"], p["title"], body, p.get("description") or first_words(p["body"]), head, body_class="wide")
+    cover_abs = SITE["url"].rstrip("/") + "/" + p["cover"].lstrip("/") if p.get("cover") else ""
+    page(p["path"], p["title"], body, p.get("description") or first_words(p["body"]), head, body_class="wide", image=cover_abs)
     (OUT / "ramblings" / f"{p['slug']}.md").write_text(
         f"# {p['title']}\n\nBy {SITE['name']} · {p['date']}\n\n"
         + re.sub(

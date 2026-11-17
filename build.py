@@ -140,6 +140,8 @@ def page(path, title, content, description, extra_head="", body_class="", image=
 <meta name="description" content="{html.escape(description, quote=True)}">
 <meta name="author" content="{html.escape(SITE['name'])}">
 <link rel="canonical" href="{url}">
+<link rel="icon" href="{prefix}assets/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="{prefix}assets/apple-touch-icon.png">
 <meta property="og:title" content="{html.escape(full_title, quote=True)}">
 <meta property="og:description" content="{html.escape(description, quote=True)}">
 <meta property="og:url" content="{url}">

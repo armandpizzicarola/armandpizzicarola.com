@@ -11,6 +11,7 @@ More important than the appreciation of a *book* is the appreciation of *reading
 - The Three-Body Problem, Cixin Liu
 - 1929: Inside the Greatest Crash in History – and How It Shattered a Nation, Andrew Ross Sorkin
 - Means of Ascent, Robert A. Caro
+- The Fund: Ray Dalio, Bridgewater Associates, and the Unraveling of a Wall Street Legend, Rob Copeland
 
 ## 2025
 
